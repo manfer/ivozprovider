@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Provisión de terminales &mdash; documentación de IvozProvider - Oasis</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de IvozProvider - Oasis" href="../index.html"/>
+        <link rel="next" title="Sistema de Fax Virtual" href="../faxing/index.html"/>
+        <link rel="prev" title="Generación de facturas" href="../billing_and_invoices/invoices.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> IvozProvider
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Basic Concepts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introducción a Ivozprovider</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Arquitectura general de la plataforma</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operation_roles/index.html">Roles de la plataforma</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Minimum Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación inicial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../internal_calls/index.html">Realizar llamadas internas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external_incoming_calls/index.html">Recibir llamadas externas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external_outgoing_calls/index.html">Realizar llamadas externas</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pbx_features/index.html">Funcionalidades de PBX</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../billing_and_invoices/index.html">Tarificación y facturación</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Provisión de terminales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-of-supported-models">Configuración de modelos soportados</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faxing/index.html">Sistema de Fax Virtual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userportal/index.html">Portal de usuario</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Security and Maintenance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security/index.html">Elementos de seguridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Mantenimiento de la solución</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">IvozProvider</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Provisión de terminales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/provisioning/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="terminal-provisioning">
+<span id="provisioning"></span><h1>Provisión de terminales<a class="headerlink" href="#terminal-provisioning" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>IvozProvider soporta provisionar terminales vía HTTP/HTTPS que sigan la forma de provisionarse que se explica a continuación:</p>
+<ul>
+<li><p class="first">Cuando un terminal sale de la caja, se alimenta y se conecta a la red:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">Pide IP por DHCP.</p>
+</li>
+<li><p class="first">Se fija en la opción 66 de DHCP que le indica a quién tiene que pedir su configuración.</p>
+</li>
+<li><p class="first">Pide un primer archivo añadiendo a la ruta recibida por DHCP un archivo estático (cada modelo de terminal, uno distinto).</p>
+</li>
+<li><p class="first">En ese archivo se le puede indicar un siguiente archivo a pedir.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Todo terminal que sea capaz de adaptarse a este formato podrá provisionarse utilizando la sección <strong>Configuración general &gt; Fabricantes de terminales</strong>.</p>
+<p class="rubric">Ejemplo Cisco SPA504G</p>
+<ul>
+<li><p class="first">Cisco 504G se despierta y pide IP.</p>
+</li>
+<li><p class="first">Recibe “<a class="reference external" href="http://provision.ejemplo.com/provision">http://provision.ejemplo.com/provision</a>”</p>
+</li>
+<li><p class="first">Pide la configuración vía http a <a class="reference external" href="http://provision.ejemplo.com/provision/spa504g.cfg">http://provision.ejemplo.com/provision/spa504g.cfg</a></p>
+</li>
+<li><p class="first">Todos los 504G solicitan el mismo archivo (spa504g.cfg), añadiéndolo a la ruta que reciban.</p>
+</li>
+<li><p class="first">En ese primer archivo común se especifican los parámetros comunes a todos los terminales de ese modelo concreto y qué archivo tienen que pedir a continuación (ejemplo <a class="reference external" href="https://provision.example.com/provision/$MAC.cfg">https://provision.example.com/provision/$MAC.cfg</a>)</p>
+</li>
+<li><p class="first">De esta forma, hacemos que cada terminal (la MAC es única) pida un archivo concreto (y distinto) una vez que ha pedido el genérico.</p>
+</li>
+<li><p class="first">En este archivo se le sirve su configuración específica:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">Usuario</p>
+</li>
+<li><p class="first">Contraseña</p>
+</li>
+<li><p class="first">Dominio SIP</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">El sistema de provisión de IvozProvider, a día de hoy, configura los terminales con el único objetivo de que se registren y se queden en en el idioma del usuario.</p>
+</div>
+<div class="section" id="configuration-of-supported-models">
+<h2>Configuración de modelos soportados<a class="headerlink" href="#configuration-of-supported-models" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>IvozProvider utiliza un sistema de plantillas que permite que el operador global (God) defina nuevos modelos de terminales y configure los archivos que se les servirá.</p>
+<p>La sección de ayuda de <strong>Fabricantes de Terminales</strong> contiene ejemplos para los modelos soportados <em>out-of-the-box</em> por la solución:</p>
+<ul class="simple">
+<li>Cisco SPA (502, 504, 509, 514 y 525)</li>
+<li>Yealink (T21P, T21Pe2, T23P, T27P, T48G, W52P, W56P)</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Consejo</p>
+<p class="last">Estos modelos aparecen en la sección tras la instalación, pero hay que entrar a cada uno de ellos a cargar la configuración por defecto antes de poder usarlos (opción <strong>Restore default template</strong>).</p>
+</div>
+<p>Analizando las plantillas sugeridas, puede hacerse una idea básica de la flexibilidad del sistema para configurar cualquier modelo de terminal en el mercado.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../faxing/index.html" class="btn btn-neutral float-right" title="Sistema de Fax Virtual" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../billing_and_invoices/invoices.html" class="btn btn-neutral" title="Generación de facturas" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Irontec.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Oasis',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Provisión de terminales</title>
+    
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.xhtml" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="../faxing/index.xhtml" title="Sistema de Fax Virtual"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="../billing_and_invoices/invoices.xhtml" title="Generación de facturas"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.xhtml">documentación de IvozProvider - Oasis</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="terminal-provisioning">
+<span id="provisioning"></span><h1>Provisión de terminales</h1>
+<p>IvozProvider soporta provisionar terminales vía HTTP/HTTPS que sigan la forma de provisionarse que se explica a continuación:</p>
+<ul>
+<li><p class="first">Cuando un terminal sale de la caja, se alimenta y se conecta a la red:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">Pide IP por DHCP.</p>
+</li>
+<li><p class="first">Se fija en la opción 66 de DHCP que le indica a quién tiene que pedir su configuración.</p>
+</li>
+<li><p class="first">Pide un primer archivo añadiendo a la ruta recibida por DHCP un archivo estático (cada modelo de terminal, uno distinto).</p>
+</li>
+<li><p class="first">En ese archivo se le puede indicar un siguiente archivo a pedir.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Todo terminal que sea capaz de adaptarse a este formato podrá provisionarse utilizando la sección <strong>Configuración general &gt; Fabricantes de terminales</strong>.</p>
+<p class="rubric">Ejemplo Cisco SPA504G</p>
+<ul>
+<li><p class="first">Cisco 504G se despierta y pide IP.</p>
+</li>
+<li><p class="first">Recibe “<a class="reference external" href="http://provision.ejemplo.com/provision">http://provision.ejemplo.com/provision</a>”</p>
+</li>
+<li><p class="first">Pide la configuración vía http a <a class="reference external" href="http://provision.ejemplo.com/provision/spa504g.cfg">http://provision.ejemplo.com/provision/spa504g.cfg</a></p>
+</li>
+<li><p class="first">Todos los 504G solicitan el mismo archivo (spa504g.cfg), añadiéndolo a la ruta que reciban.</p>
+</li>
+<li><p class="first">En ese primer archivo común se especifican los parámetros comunes a todos los terminales de ese modelo concreto y qué archivo tienen que pedir a continuación (ejemplo <a class="reference external" href="https://provision.example.com/provision/$MAC.cfg">https://provision.example.com/provision/$MAC.cfg</a>)</p>
+</li>
+<li><p class="first">De esta forma, hacemos que cada terminal (la MAC es única) pida un archivo concreto (y distinto) una vez que ha pedido el genérico.</p>
+</li>
+<li><p class="first">En este archivo se le sirve su configuración específica:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">Usuario</p>
+</li>
+<li><p class="first">Contraseña</p>
+</li>
+<li><p class="first">Dominio SIP</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">El sistema de provisión de IvozProvider, a día de hoy, configura los terminales con el único objetivo de que se registren y se queden en en el idioma del usuario.</p>
+</div>
+<div class="section" id="configuration-of-supported-models">
+<h2>Configuración de modelos soportados</h2>
+<p>IvozProvider utiliza un sistema de plantillas que permite que el operador global (God) defina nuevos modelos de terminales y configure los archivos que se les servirá.</p>
+<p>La sección de ayuda de <strong>Fabricantes de Terminales</strong> contiene ejemplos para los modelos soportados <em>out-of-the-box</em> por la solución:</p>
+<ul class="simple">
+<li>Cisco SPA (502, 504, 509, 514 y 525)</li>
+<li>Yealink (T21P, T21Pe2, T23P, T27P, T48G, W52P, W56P)</li>
+</ul>
+<div class="admonition hint">
+<p class="first admonition-title">Consejo</p>
+<p class="last">Estos modelos aparecen en la sección tras la instalación, pero hay que entrar a cada uno de ellos a cargar la configuración por defecto antes de poder usarlos (opción <strong>Restore default template</strong>).</p>
+</div>
+<p>Analizando las plantillas sugeridas, puede hacerse una idea básica de la flexibilidad del sistema para configurar cualquier modelo de terminal en el mercado.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Irontec.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+    </div>
+  </body>
+</html>

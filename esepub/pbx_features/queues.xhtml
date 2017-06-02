@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Colas</title>
+    
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.xhtml" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="ivrs.xhtml" title="Interactive Voice Response (IVR)"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="huntgroups.xhtml" title="Grupos de salto"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.xhtml">documentación de IvozProvider - Oasis</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.xhtml" accesskey="U">Funcionalidades de PBX</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="queues">
+<h1>Colas</h1>
+<p>El comportamiento básico de colas está incluido en la version 1.3 de IvozProvider. Es una aproximación simple con <strong>el único propósito de proveer un mencanismo para procesar más llamadas que usuarios puedan atenderlas</strong>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Colas y Callcenter son términos cercanos pero diferentes. <strong>IvozProvider no es un producto adecuado para callcenters</strong>, y no proporciona las funcionalidades avanzadas cruciales para ellos (como Reportes, visualización realtime, estadísticas de colas, etc..).</p>
+</div>
+<p>This easy approach has a drawback <strong>in distributed installations</strong>: as Asterisk does
+not provide yet a way to share queue information between multiple instances and
+as we have not found a proper way neither, <strong>a company that uses queues must have
+an static assignment to one of the Application Servers</strong> (in Companies section).</p>
+<div class="admonition hint">
+<p class="first admonition-title">Consejo</p>
+<p class="last">Los operadores de marca pueden elegir que Compañía tiene colas (ver <strong>Features</strong> en <a class="reference internal" href="../internal_calls/brand_portal.xhtml#brand-configuration"><span class="std std-ref">Configuración de Marca</span></a> y <a class="reference internal" href="../internal_calls/company_portal.xhtml#company-configuration"><span class="std std-ref">Configuración de Compañía</span></a>).</p>
+</div>
+<div class="section" id="queue-configuration">
+<h2>Configuración de cola</h2>
+<p>Estas son las configuraciones relacionadas con una cola:</p>
+<dl class="glossary docutils">
+<dt id="term-name">Nombre</dt>
+<dd><p class="first last">Empleado para referenciar esta cola</p>
+</dd>
+<dt id="term-weight">Peso</dt>
+<dd><p class="first last">Cuando un miembro está en varias colas, se atenderán primero las llamadas de las colas con mayor peso.</p>
+</dd>
+<dt id="term-strategy">Estrategia</dt>
+<dd><p class="first last">¿Como se enviarán las llamadadas encoladas? Llamando a todos los miembros, llamando a uno al azar, etc.</p>
+</dd>
+<dt id="term-member-call-seconds">Duración llamada a miembro</dt>
+<dd><p class="first last">Tiempo en segundos que se llamará a cada miembro de la cola</p>
+</dd>
+<dt id="term-member-rest-seconds">Descanso miembro</dt>
+<dd><p class="first last">Tiempo en segundos que el miembro no será molestado tras atender una llamada de cola.</p>
+</dd>
+<dt id="term-announce">Anuncio</dt>
+<dd><p class="first last">Seleccione la locución y frecuencia. Las llamadas esperando en la cola escucharán esta locución.</p>
+</dd>
+<dt id="term-timeout-configuration">Configuración no contesta</dt>
+<dd><p class="first last">Limita el tiempo que una llamada esperará en la cola y el tratamiento a realizar cuando se supere ese tiempo.</p>
+</dd>
+<dt id="term-full-queue-configuration">Configuración cola llena</dt>
+<dd><p class="first last">Limita el número de llamadas que podrán esperar en la cola y el comportamiento a realizar cuando se alcance esa cantidad.</p>
+</dd>
+</dl>
+<p>Además de crear una cola, es preciso asignarle usuarios. Estos usuarios tendrán una <strong>prioridad: Un usuario de prioridad alta no será no será molestado siempre que exista un usuario de menor prioridad disponible.</strong></p>
+<div class="admonition hint">
+<p class="first admonition-title">Consejo</p>
+<p class="last">Una llamada puede ser enviada a una cola eligiendo la opción cola del selector &#8220;Enrutar&#8221; disponible en varias seciones de IvozProvider (extension a cola, DDI a cola, ...)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Irontec.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Users configuration</title>
+    
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head>
+  <body role="document">
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.xhtml" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="friends.xhtml" title="Friends"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="call_permissions.xhtml" title="Call ACL Control"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.xhtml">IvozProvider Oasis documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.xhtml" accesskey="U">PBX Features</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="users-configuration">
+<span id="users"></span><h1>Users configuration</h1>
+<p>The installation process creates <em>Alice</em> and <em>Bob</em> users, allowing us
+to test internals calls between them without too much effort.</p>
+<p>We also skipped most of the setting in <strong>Users</strong> configuration that we will
+define in this section.</p>
+<p>As usually, the best way is to edit an existing user and describe each of its
+fields:</p>
+<div class="section" id="personal-data">
+<h2>Personal data</h2>
+<img alt="../_images/users_edit_personal_data.png" src="../_images/users_edit_personal_data.png" />
+<dl class="glossary docutils">
+<dt id="term-name">Name</dt>
+<dd>Used to identify this user in most of the screens. This is also the
+name that will be displayed in internal calls made from this user.</dd>
+<dt id="term-lastname">Lastname</dt>
+<dd>Most of the times this is used to complete the previous field.</dd>
+<dt id="term-email">Email</dt>
+<dd>Email used to send the user&#8217;s received voicemails. This is also used to
+identify the user in their portal.</dd>
+</dl>
+</div>
+<div class="section" id="login-info">
+<h2>Login Info</h2>
+<img alt="../_images/users_edit_login.png" src="../_images/users_edit_login.png" />
+<dl class="glossary docutils">
+<dt id="term-active">Active</dt>
+<dd>Allows administrators to grant or disable user&#8217;s acces to the
+<a class="reference internal" href="../userportal/index.xhtml#userportal"><span class="std std-ref">user&#8217;s portal</span></a>.</dd>
+<dt id="term-password">Password</dt>
+<dd>Password used to access the <a class="reference internal" href="../userportal/index.xhtml#userportal"><span class="std std-ref">user&#8217;s portal</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="basic-configuration">
+<h2>Basic Configuration</h2>
+<img alt="../_images/users_edit_basic_config.png" src="../_images/users_edit_basic_config.png" />
+<dl class="glossary docutils">
+<dt id="term-terminal">Terminal</dt>
+<dd>The available terminals created in <a class="reference internal" href="terminals.xhtml#terminals"><span class="std std-ref">Terminals configuration</span></a> are listed here
+for assignment.</dd>
+<dt id="term-extension">Extension</dt>
+<dd>One of the available <a class="reference internal" href="extensions.xhtml#extensions"><span class="std std-ref">Extensions</span></a> that this user will display when
+placing internal calls. While multiple extensions can be routed to the
+user, only one of them will be presented when the user calls.</dd>
+<dt id="term-outgoing-ddi">Outgoing DDI</dt>
+<dd>As described in <a class="reference internal" href="../external_outgoing_calls/external_ddi.xhtml#external-ddi"><span class="std std-ref">Outgoing DDI configuration</span></a>, determines the number that will
+present when placing external outgoing calls.</dd>
+<dt id="term-call-acl">Call ACL</dt>
+<dd>One of the created <a class="reference internal" href="call_permissions.xhtml#call-permissions"><span class="std std-ref">Call ACL</span></a> groups, described
+it the previous sections.</dd>
+<dt id="term-do-not-disturb">Do not disturb</dt>
+<dd>When this setting is enabled, the user won&#8217;t receive any call but can
+still place calls.</dd>
+<dt id="term-call-waiting">Call waiting</dt>
+<dd>When this setting is enabled, the user terminal will receive new calls
+even if it already talking.</dd>
+</dl>
+</div>
+<div class="section" id="voicemail">
+<h2>Voicemail</h2>
+<img alt="../_images/users_edit_vm.png" src="../_images/users_edit_vm.png" />
+<dl class="glossary docutils">
+<dt id="term-voicemail-enabled">VoiceMail enabled</dt>
+<dd>Enables or disables the <strong>existance</strong> of a users voicemail.
+This only makes the voicemail available to be routed as described in the
+section <a class="reference internal" href="#fwd-to-vm"><span class="std std-ref">forward to voicemail</span></a>.</dd>
+<dt id="term-email-notification">Email notification</dt>
+<dd>Send an email to the configured user address when a new voicemail is
+received.</dd>
+<dt id="term-attach-sounds">Attach sounds:</dt>
+<dd>Attach the audio message to the sent email.</dd>
+</dl>
+</div>
+<div class="section" id="boss-assistant">
+<h2>Boss-Assistant</h2>
+<img alt="../_images/users_edit_boss.png" src="../_images/users_edit_boss.png" />
+<p>This feature will turn the user into a boss that can only be directly call by:</p>
+<ul class="simple">
+<li>The selected assistant.</li>
+<li>Any exception defined in the whitelist regular expression.</li>
+</ul>
+<p>The rest of the calls to <em>a bos</em> will be redirected to the assistant.</p>
+<dl class="glossary docutils">
+<dt id="term-is-boss">Is boss</dt>
+<dd>Determines if this user is a boss.</dd>
+<dt id="term-assistant">Assistant</dt>
+<dd>Who will receive the redirected calls of this boss.</dd>
+<dt id="term-whitelist-regular-expression">Whitelist regular expression.</dt>
+<dd>Regular expresion to match numbers that are allowed to call directly to
+the boss.</dd>
+</dl>
+<p>With the setup in the image, every call to <em>Alice</em> will be redirected to <em>Bob</em>,
+except the ones placed by <em>Bob</em> itself and those coming from the number
+945 945 945.</p>
+</div>
+<div class="section" id="group-configuration">
+<h2>Group Configuration</h2>
+<img alt="../_images/users_edit_groups.png" src="../_images/users_edit_groups.png" />
+<p>As described in the sections <a class="reference internal" href="huntgroups.xhtml#huntgroups"><span class="std std-ref">Hunt gorups</span></a> and <a class="reference internal" href="call_captures.xhtml#capture-groups"><span class="std std-ref">Call pickup</span></a>, the
+user can be part of one or more huntgroups and pickup groups.</p>
+<p>Those groups can be configured from the sections <a class="reference internal" href="huntgroups.xhtml#huntgroups"><span class="std std-ref">Hunt gorups</span></a> and
+<a class="reference internal" href="call_captures.xhtml#capture-groups"><span class="std std-ref">Call pickup</span></a> or the user&#8217;s screen if the groups already exists.</p>
+<p>You can also configure the user&#8217;s <strong>hunt groups</strong> from the icon in each user
+line of the users list.</p>
+<img alt="../_images/users_huntgroups.png" class="align-center" src="../_images/users_huntgroups.png" />
+</div>
+<div class="section" id="user-call-forward">
+<h2>User Call Forward</h2>
+<p>The user&#8217;s call forward can be configured in the following button:</p>
+<img alt="../_images/users_call_fwd.png" class="align-center" src="../_images/users_call_fwd.png" />
+<p id="fwd-to-vm">For example, to forward all external calls that are not answered after 15
+seconds, we could configure a call forward like this:</p>
+<img alt="../_images/users_call_fwd2.png" class="align-center" src="../_images/users_call_fwd2.png" />
+<p>These are the fields and available values:</p>
+<dl class="glossary docutils">
+<dt id="term-call-type">Call Type</dt>
+<dd>Determines if the forward must be applied to external, internal or any
+type of call.</dd>
+<dt id="term-forward-type">Forward type</dt>
+<dd><dl class="first last docutils">
+<dt>When this forward must be applied:</dt>
+<dd><ul class="first last simple">
+<li>Inconditional: always</li>
+<li>No answer: when the call is not answered in X seconds</li>
+<li>Busy: When the user is talking to someone (and call waiting is
+disabled), when <em>Do not disturb</em> is enabled or when the user
+rejects an incoming call.</li>
+<li>Not registered: when the user SIP terminal is not registered
+against IvozProvider.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt id="term-target-type">Target type</dt>
+<dd><dl class="first last docutils">
+<dt>What route will use the forwaded call.</dt>
+<dd><ul class="first last simple">
+<li>VoiceMail</li>
+<li>Number (external)</li>
+<li>Extension (internal)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If we want to forward to other process, we can create an extension
+routed to that object and use the target type <em>Extension</em>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Irontec.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+    </div>
+  </body>
+</html>
